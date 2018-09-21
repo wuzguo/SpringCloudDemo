@@ -1,0 +1,28 @@
+server:
+  port: 7004
+
+spring:
+  application:
+    name: demo-turbine-service
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:4000/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      cors:
+        allowed-origins: "*"
+        allowed-methods: "*"
+
+turbine:
+  app-config: demo-ribbon-service
+  aggregator:
+    clusterConfig: default
+  clusterNameExpression: new String("default")
+  combine-host-port: true
+  instanceUrlSuffix:
+    default: actuator/hystrix.stream

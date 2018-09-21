@@ -1,0 +1,38 @@
+server:
+  port: 6034
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:4000/eureka/
+
+spring:
+  application:
+    name: demo-config-service
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://git.coding.net/wuzguo/config-cloud.git
+          force-pull: true
+          deleteUntrackedBranches: true
+          searchPaths: respo
+          username:
+          password:
+      label: master
+    ## 开启消息跟踪
+    bus:
+      enabled: true
+      trace:
+        enabled: true
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh

@@ -1,0 +1,20 @@
+server:
+  port: 4506
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:4000/eureka/
+    registerWithEureka: false
+
+spring:
+  application:
+    name: demo-config-client
+  cloud:
+    config:
+      label: master
+      profile: dev
+      # uri: http://localhost:6034/
+      discovery:
+        enabled: true
+        serviceId: demo-config-service
