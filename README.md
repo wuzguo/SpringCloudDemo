@@ -32,4 +32,28 @@
     
 ## ...
 ```
-### 3、待续....
+rabbit-mq管理界面如图所示：
+
+<img src="./docs/images/3.png"/>
+
+
+
+- 分布式服务跟踪 zipkin 配置：
+
+  请自行下载zipkin安装包，并在本地启动，启动命令：
+
+  ```shell
+  java -jar zipkin-server-2.9.4-exec.jar
+  ```
+
+启动成功后，在浏览器中输入：`http://localhost:9411` （zipkin默认监听9411端口）。
+
+<img src="./docs/images/1.png"/>
+
+以上就显示了服务调用之间的链路和各链路所耗费的时间，给服务优化提供依据。
+
+
+
+- hystrix 的控制台，主要监控服务的状态和业务压力：
+
+  <img src="./docs/images/2.png"/>
